@@ -1,6 +1,6 @@
-# Publish Arcplan for free
+# Publish Gantt Creator for free
 
-Arcplan is a static browser application. It needs no server or database.
+Gantt Creator is a static browser application. It needs no server or database.
 
 ## GitHub Pages
 

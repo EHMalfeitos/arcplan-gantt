@@ -15,5 +15,6 @@ body[data-theme="sunset"]{--orange:#f7d4c4;--blue:#efd0d6;--green:#f4dfb8;--purp
 body[data-theme="plum"]{--orange:#ead6e4;--blue:#dcd9ef;--green:#dce3d7;--purple:#dfd0e8;--navy:#402d55}body[data-theme="plum"] .app-shell{background:linear-gradient(180deg,#fcf9ff 0,#fcf9ff 310px,#f3eef7 310px)}
 body[data-theme="executive"] .bar.red,body[data-theme="executive"] .bar.teal{background:#d5d9df}body[data-theme="minimal"] .bar.red,body[data-theme="minimal"] .bar.teal{background:#e1e5e9}
 @media(max-width:800px){.style-picker{max-width:105px}.style-picker>span{display:none}.style-picker select{max-width:82px}}
+.bar:after{border-radius:5px 0 0 5px;background:rgba(23,32,51,.24);border-right:1px solid rgba(23,32,51,.28)}
 @media(max-width:800px){.top-actions #saveBtn{display:none}.top-actions #exportBtn,.top-actions #openBtn{display:block;padding:8px 10px}.view-tabs{gap:14px}.view-tabs button:not(.active){display:block}.board-view{padding:14px}.hero h1{font-size:25px}}
 @media print{body{background:#fff}.topbar,.toolbar,.hero .metrics,.task-panel{display:none!important}.hero{padding:20px 0}.hero h1{font-size:22px}.workspace-card{border:0;box-shadow:none;margin:0}.gantt-shell{display:block!important}.timeline-wrap{overflow:visible}.timeline{transform-origin:top left}@page{size:landscape;margin:10mm}}

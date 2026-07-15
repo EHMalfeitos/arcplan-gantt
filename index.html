@@ -6,13 +6,13 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-10">
+  <link rel="stylesheet" href="styles.css?v=20260715-11">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand"><span class="brand-mark">G</span><div><strong>Gantt Creator</strong><small>Simple project planning</small></div></div>
-      <div class="top-actions"><button class="ghost-btn" id="openBtn">Open project</button><button class="ghost-btn" id="saveBtn">Save project file</button><button class="ghost-btn" id="exportBtn">Export</button><button class="primary-btn" id="addTaskTop">＋ Add task</button><input type="file" id="importFile" accept="application/json,.json" hidden></div>
+      <div class="top-actions"><button class="ghost-btn" id="newBtn">New project</button><button class="ghost-btn" id="openBtn">Open project</button><button class="ghost-btn" id="saveBtn">Save project file</button><button class="ghost-btn" id="exportBtn">Export</button><button class="primary-btn" id="addTaskTop">＋ Add task</button><input type="file" id="importFile" accept="application/json,.json" hidden></div>
     </header>
 
     <main>
@@ -73,7 +73,11 @@
     <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">SHARE PROJECT</p><h2>Export or restore</h2></div><button type="button" class="close-btn export-close">×</button></div><div class="export-grid"><button type="button" id="exportSvg"><strong>SVG image</strong><small>Sharp, editable chart graphic</small></button><button type="button" id="exportPng"><strong>PNG image</strong><small>Universal image format</small></button><button type="button" id="exportPdf"><strong>PDF</strong><small>Print-ready project report</small></button><button type="button" id="exportJson"><strong>Project file</strong><small>Backup all editable data</small></button><button type="button" id="importJson"><strong>Open project</strong><small>Restore a saved project file</small></button></div></form>
   </dialog>
 
+  <dialog id="newProjectDialog">
+    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">NEW PROJECT</p><h2>Start from scratch?</h2></div><button type="button" class="close-btn new-project-close">×</button></div><p class="new-project-copy">Download the current project file first if you want to open it again later.</p><div class="new-project-actions"><button type="button" class="ghost-btn new-project-close">Cancel</button><button type="button" class="danger-link" id="newWithoutSave">Start without saving</button><button type="button" class="primary-btn" id="newSave">Save &amp; start new</button></div></form>
+  </dialog>
+
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-10"></script>
+  <script src="app.js?v=20260715-11"></script>
 </body>
 </html>

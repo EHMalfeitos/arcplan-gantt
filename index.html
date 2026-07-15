@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-17">
+  <link rel="stylesheet" href="styles.css?v=20260715-18">
 </head>
 <body>
   <div class="app-shell">
@@ -61,8 +61,9 @@
       <div class="form-grid"><label>Start date<input type="date" id="taskStart" required></label><label>End date<input type="date" id="taskEnd" required></label></div>
       <label>First bar label<input id="taskPrimaryLabel" maxlength="60" placeholder="Text shown on the first bar"></label>
       <label>First period note <span class="optional-label">Optional</span><textarea id="taskPrimaryNote" maxlength="180" rows="2" placeholder="Comment or information shown below this bar"></textarea></label>
+      <label class="period-progress-field">First period progress<input type="range" id="taskPrimaryProgress" min="0" max="100" step="5"><output id="primaryProgressOutput">0%</output></label>
       <div class="segment-editor"><div class="segment-editor-head"><div><strong>Additional work periods</strong><small>Use another period when work pauses and resumes later.</small></div><button type="button" class="ghost-btn" id="addSegmentBtn">＋ Add period</button></div><div id="segmentList"></div></div>
-      <div class="form-grid"><label>Progress<input type="range" id="taskProgress" min="0" max="100" step="5"><output id="progressOutput">0%</output></label><label>Status<select id="taskStatus"></select></label></div>
+      <div class="form-grid"><label class="overall-progress">Overall progress <small>Weighted by period duration</small><input type="range" id="taskProgress" min="0" max="100" step="1" disabled><output id="progressOutput">0%</output></label><label>Status<select id="taskStatus"></select></label></div>
       <div class="form-grid"><label>Owner<input id="taskOwner" maxlength="3" placeholder="EA"></label><label>Bar colour<select id="taskColor"><option value="orange">Executive orange</option><option value="blue">Slate blue</option><option value="green">Success green</option><option value="purple">Plum</option><option value="red">Priority red</option><option value="teal">Teal</option></select></label></div>
       <div class="dialog-actions"><button type="button" class="danger-link" id="deleteTask">Delete</button><span></span><button type="button" class="ghost-btn" id="cancelDialog">Cancel</button><button value="save" class="primary-btn">Save task</button></div>
     </form>
@@ -93,6 +94,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-17"></script>
+  <script src="app.js?v=20260715-18"></script>
 </body>
 </html>

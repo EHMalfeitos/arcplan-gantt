@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-14">
+  <link rel="stylesheet" href="styles.css?v=20260715-15">
 </head>
 <body>
   <div class="app-shell">
@@ -57,6 +57,7 @@
       <label>Predecessor<select id="taskPredecessor"><option value="">No predecessor</option></select></label>
       <p class="relationship-note" id="taskSuccessors">Successors: none</p>
       <div class="form-grid"><label>Start date<input type="date" id="taskStart" required></label><label>End date<input type="date" id="taskEnd" required></label></div>
+      <label>First bar label<input id="taskPrimaryLabel" maxlength="60" placeholder="Text shown on the first bar"></label>
       <div class="segment-editor"><div class="segment-editor-head"><div><strong>Additional work periods</strong><small>Use another period when work pauses and resumes later.</small></div><button type="button" class="ghost-btn" id="addSegmentBtn">＋ Add period</button></div><div id="segmentList"></div></div>
       <div class="form-grid"><label>Progress<input type="range" id="taskProgress" min="0" max="100" step="5"><output id="progressOutput">0%</output></label><label>Owner<input id="taskOwner" maxlength="3" placeholder="EA"></label></div>
       <label>Bar colour<select id="taskColor"><option value="orange">Executive orange</option><option value="blue">Slate blue</option><option value="green">Success green</option><option value="purple">Plum</option><option value="red">Priority red</option><option value="teal">Teal</option></select></label>
@@ -85,6 +86,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-14"></script>
+  <script src="app.js?v=20260715-15"></script>
 </body>
 </html>

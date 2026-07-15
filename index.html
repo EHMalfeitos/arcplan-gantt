@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-20">
+  <link rel="stylesheet" href="styles.css?v=20260715-21">
 </head>
 <body>
   <div class="app-shell">
@@ -65,6 +65,7 @@
       <div class="segment-editor"><div class="segment-editor-head"><div><strong>Additional work periods</strong><small>Use another period when work pauses and resumes later.</small></div><button type="button" class="ghost-btn" id="addSegmentBtn">＋ Add period</button></div><div id="segmentList"></div></div>
       <div class="form-grid"><label class="overall-progress">Overall progress <small>Weighted by period duration</small><input type="range" id="taskProgress" min="0" max="100" step="1" disabled><output id="progressOutput">0%</output></label><label>Status<select id="taskStatus"></select></label></div>
       <div class="form-grid"><label>Owner<input id="taskOwner" maxlength="3" placeholder="EA"></label><label>Bar colour<select id="taskColor"><option value="orange">Executive orange</option><option value="blue">Slate blue</option><option value="green">Success green</option><option value="purple">Plum</option><option value="red">Priority red</option><option value="teal">Teal</option></select></label></div>
+      <div class="completion-milestone-box"><label class="check-row"><input type="checkbox" id="taskCompletionMilestone"><span><strong>Completion milestone</strong><small>Place a milestone at the end of this task, on the same row.</small></span></label><label id="completionMilestoneNameWrap">Milestone name<input id="completionMilestoneName" maxlength="60" placeholder="e.g. Approval gate"></label></div>
       <div class="dialog-actions"><button type="button" class="danger-link" id="deleteTask">Delete</button><span></span><button type="button" class="ghost-btn" id="cancelDialog">Cancel</button><button value="save" class="primary-btn">Save task</button></div>
     </form>
   </dialog>
@@ -74,7 +75,7 @@
   </dialog>
 
   <dialog id="milestoneDialog">
-    <form method="dialog" id="milestoneForm"><div class="dialog-head"><div><p class="eyebrow">KEY EVENT</p><h2 id="milestoneDialogTitle">Add milestone</h2></div><button type="button" class="close-btn milestone-close">×</button></div><input type="hidden" id="milestoneId"><label>Milestone name<input id="milestoneName" required maxlength="60" placeholder="e.g. Executive approval"></label><label>Phase<select id="milestonePhase"></select></label><label>Date<input type="date" id="milestoneDate" required></label><label>Predecessor<select id="milestonePredecessor"><option value="">No predecessor</option></select></label><p class="relationship-note" id="milestoneSuccessors">Successors: none</p><div class="dialog-actions"><button type="button" class="danger-link" id="deleteMilestone">Delete</button><span></span><button type="button" class="ghost-btn milestone-close">Cancel</button><button value="save" class="primary-btn">Save milestone</button></div></form>
+    <form method="dialog" id="milestoneForm"><div class="dialog-head"><div><p class="eyebrow">KEY EVENT</p><h2 id="milestoneDialogTitle">Add milestone</h2></div><button type="button" class="close-btn milestone-close">×</button></div><input type="hidden" id="milestoneId"><input type="hidden" id="milestoneInlineTaskId"><label>Milestone name<input id="milestoneName" required maxlength="60" placeholder="e.g. Executive approval"></label><label>Phase<select id="milestonePhase"></select></label><label>Date<input type="date" id="milestoneDate" required></label><p class="relationship-note inline-milestone-note" id="milestoneInlineNote"></p><label>Predecessor<select id="milestonePredecessor"><option value="">No predecessor</option></select></label><p class="relationship-note" id="milestoneSuccessors">Successors: none</p><div class="dialog-actions"><button type="button" class="danger-link" id="deleteMilestone">Delete</button><span></span><button type="button" class="ghost-btn milestone-close">Cancel</button><button value="save" class="primary-btn">Save milestone</button></div></form>
   </dialog>
 
   <dialog id="calendarDialog">
@@ -94,6 +95,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-20"></script>
+  <script src="app.js?v=20260715-21"></script>
 </body>
 </html>

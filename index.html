@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-13">
+  <link rel="stylesheet" href="styles.css?v=20260715-14">
 </head>
 <body>
   <div class="app-shell">
@@ -73,7 +73,7 @@
   </dialog>
 
   <dialog id="calendarDialog">
-    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">WORKING CALENDAR</p><h2>Off days</h2></div><button type="button" class="close-btn calendar-close">×</button></div><label class="check-row"><input type="checkbox" id="shadeWeekends"><span><strong>Shade weekends</strong><small>Show Saturdays and Sundays in light grey.</small></span></label><div class="off-day-entry"><label>Date<input type="date" id="offDayDate"></label><label>Label<input id="offDayLabel" maxlength="32" placeholder="Vacation, holiday…"></label><button type="button" class="primary-btn" id="addOffDay">Add</button></div><div id="offDayList" class="off-day-list"></div><div class="calendar-actions"><button type="button" class="primary-btn calendar-close">Done</button></div></form>
+    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">WORKING CALENDAR</p><h2>Off days</h2></div><button type="button" class="close-btn calendar-close">×</button></div><label class="check-row"><input type="checkbox" id="shadeWeekends"><span><strong>Shade weekends</strong><small>Show Saturdays and Sundays in light grey.</small></span></label><div class="off-day-entry"><label>From<input type="date" id="offDayStart"></label><label>To<input type="date" id="offDayEnd"></label><label>Label<input id="offDayLabel" maxlength="32" placeholder="Vacation, holiday…"></label><button type="button" class="primary-btn" id="addOffDay">Add interval</button></div><div id="offDayList" class="off-day-list"></div><div class="calendar-actions"><button type="button" class="primary-btn calendar-close">Done</button></div></form>
   </dialog>
 
   <dialog id="exportDialog">
@@ -85,6 +85,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-13"></script>
+  <script src="app.js?v=20260715-14"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-16">
+  <link rel="stylesheet" href="styles.css?v=20260715-17">
 </head>
 <body>
   <div class="app-shell">
@@ -29,6 +29,7 @@
             <button class="tool-btn" id="todayBtn">Today</button>
             <button class="tool-btn" id="calendarBtn">Off days</button>
             <button class="tool-btn" id="statusBtn">Statuses</button>
+            <label class="width-control"><span>Width</span><input type="range" id="widthRange" min="60" max="180" step="10" value="100" aria-label="Horizontal cell width"><output id="widthOutput">100%</output></label>
             <div class="segmented" id="zoomControl"><button data-zoom="day">Day</button><button class="active" data-zoom="week">Week</button><button data-zoom="month">Month</button></div>
             <button class="tool-btn" id="collapseBtn" title="Collapse phases">⌃</button>
           </div>
@@ -92,6 +93,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-16"></script>
+  <script src="app.js?v=20260715-17"></script>
 </body>
 </html>

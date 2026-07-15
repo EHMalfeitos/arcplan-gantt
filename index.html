@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-15">
+  <link rel="stylesheet" href="styles.css?v=20260715-16">
 </head>
 <body>
   <div class="app-shell">
@@ -28,6 +28,7 @@
             <label class="style-picker">Style<select id="styleSelect"><option value="executive">Executive</option><option value="minimal">Minimal</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="sunset">Sunset</option><option value="plum">Plum</option></select></label>
             <button class="tool-btn" id="todayBtn">Today</button>
             <button class="tool-btn" id="calendarBtn">Off days</button>
+            <button class="tool-btn" id="statusBtn">Statuses</button>
             <div class="segmented" id="zoomControl"><button data-zoom="day">Day</button><button class="active" data-zoom="week">Week</button><button data-zoom="month">Month</button></div>
             <button class="tool-btn" id="collapseBtn" title="Collapse phases">⌃</button>
           </div>
@@ -58,9 +59,10 @@
       <p class="relationship-note" id="taskSuccessors">Successors: none</p>
       <div class="form-grid"><label>Start date<input type="date" id="taskStart" required></label><label>End date<input type="date" id="taskEnd" required></label></div>
       <label>First bar label<input id="taskPrimaryLabel" maxlength="60" placeholder="Text shown on the first bar"></label>
+      <label>First period note <span class="optional-label">Optional</span><textarea id="taskPrimaryNote" maxlength="180" rows="2" placeholder="Comment or information shown below this bar"></textarea></label>
       <div class="segment-editor"><div class="segment-editor-head"><div><strong>Additional work periods</strong><small>Use another period when work pauses and resumes later.</small></div><button type="button" class="ghost-btn" id="addSegmentBtn">＋ Add period</button></div><div id="segmentList"></div></div>
-      <div class="form-grid"><label>Progress<input type="range" id="taskProgress" min="0" max="100" step="5"><output id="progressOutput">0%</output></label><label>Owner<input id="taskOwner" maxlength="3" placeholder="EA"></label></div>
-      <label>Bar colour<select id="taskColor"><option value="orange">Executive orange</option><option value="blue">Slate blue</option><option value="green">Success green</option><option value="purple">Plum</option><option value="red">Priority red</option><option value="teal">Teal</option></select></label>
+      <div class="form-grid"><label>Progress<input type="range" id="taskProgress" min="0" max="100" step="5"><output id="progressOutput">0%</output></label><label>Status<select id="taskStatus"></select></label></div>
+      <div class="form-grid"><label>Owner<input id="taskOwner" maxlength="3" placeholder="EA"></label><label>Bar colour<select id="taskColor"><option value="orange">Executive orange</option><option value="blue">Slate blue</option><option value="green">Success green</option><option value="purple">Plum</option><option value="red">Priority red</option><option value="teal">Teal</option></select></label></div>
       <div class="dialog-actions"><button type="button" class="danger-link" id="deleteTask">Delete</button><span></span><button type="button" class="ghost-btn" id="cancelDialog">Cancel</button><button value="save" class="primary-btn">Save task</button></div>
     </form>
   </dialog>
@@ -77,6 +79,10 @@
     <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">WORKING CALENDAR</p><h2>Off days</h2></div><button type="button" class="close-btn calendar-close">×</button></div><label class="check-row"><input type="checkbox" id="shadeWeekends"><span><strong>Shade weekends</strong><small>Show Saturdays and Sundays in light grey.</small></span></label><div class="off-day-entry"><label>From<input type="date" id="offDayStart"></label><label>To<input type="date" id="offDayEnd"></label><label>Label<input id="offDayLabel" maxlength="32" placeholder="Vacation, holiday…"></label><button type="button" class="primary-btn" id="addOffDay">Add interval</button></div><div id="offDayList" class="off-day-list"></div><div class="calendar-actions"><button type="button" class="primary-btn calendar-close">Done</button></div></form>
   </dialog>
 
+  <dialog id="statusDialog">
+    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">PROJECT SETTINGS</p><h2>Task statuses</h2></div><button type="button" class="close-btn status-close">×</button></div><p class="status-intro">Create the status categories available beside task progress. Their colours appear on every work-period bar.</p><div id="statusList" class="status-list"></div><div class="status-add"><input type="color" id="newStatusColor" value="#5f9b76" aria-label="New status colour"><input id="newStatusName" maxlength="28" placeholder="New status name"><button type="button" class="primary-btn" id="addStatus">Add status</button></div><div class="calendar-actions"><button type="button" class="primary-btn status-close">Done</button></div></form>
+  </dialog>
+
   <dialog id="exportDialog">
     <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">SHARE PROJECT</p><h2>Export or restore</h2></div><button type="button" class="close-btn export-close">×</button></div><div class="export-grid"><button type="button" id="exportSvg"><strong>SVG image</strong><small>Sharp, editable chart graphic</small></button><button type="button" id="exportPng"><strong>PNG image</strong><small>Universal image format</small></button><button type="button" id="exportPdf"><strong>PDF</strong><small>Print-ready project report</small></button><button type="button" id="exportJson"><strong>Project file</strong><small>Backup all editable data</small></button><button type="button" id="importJson"><strong>Open project</strong><small>Restore a saved project file</small></button></div></form>
   </dialog>
@@ -86,6 +92,6 @@
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-15"></script>
+  <script src="app.js?v=20260715-16"></script>
 </body>
 </html>

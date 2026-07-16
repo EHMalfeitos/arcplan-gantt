@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827">
   <title>Gantt Creator</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260715-21">
+  <link rel="stylesheet" href="styles.css?v=20260715-22">
 </head>
 <body>
   <div class="app-shell">
@@ -25,6 +25,7 @@
         <div class="toolbar">
           <div class="view-tabs"><button class="active" data-view="timeline">Timeline</button><button data-view="board">Board</button><button data-view="list">List</button></div>
           <div class="toolbar-actions">
+            <div class="history-actions" aria-label="Edit history"><button class="tool-btn" id="undoBtn" title="Undo (Ctrl/Cmd+Z)" aria-label="Undo">↶</button><button class="tool-btn" id="redoBtn" title="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo">↷</button></div>
             <label class="style-picker">Style<select id="styleSelect"><option value="executive">Executive</option><option value="minimal">Minimal</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="sunset">Sunset</option><option value="plum">Plum</option></select></label>
             <button class="tool-btn" id="todayBtn">Today</button>
             <button class="tool-btn" id="calendarBtn">Off days</button>
@@ -87,14 +88,16 @@
   </dialog>
 
   <dialog id="exportDialog">
-    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">SHARE PROJECT</p><h2>Export or restore</h2></div><button type="button" class="close-btn export-close">×</button></div><div class="export-grid"><button type="button" id="exportSvg"><strong>SVG image</strong><small>Sharp, editable chart graphic</small></button><button type="button" id="exportPng"><strong>PNG image</strong><small>Universal image format</small></button><button type="button" id="exportPdf"><strong>PDF</strong><small>Print-ready project report</small></button><button type="button" id="exportJson"><strong>Project file</strong><small>Backup all editable data</small></button><button type="button" id="importJson"><strong>Open project</strong><small>Restore a saved project file</small></button></div></form>
+    <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">SHARE PROJECT</p><h2>Presentation export</h2></div><button type="button" class="close-btn export-close">×</button></div><p class="export-intro">Slide-ready 16:9 exports automatically choose a daily, weekly, monthly, or quarterly scale so the project remains readable.</p><div class="export-grid"><button type="button" id="previewPresentation" class="export-preview"><strong>Preview 16:9 layout</strong><small>Review the automatically fitted slide before exporting</small></button><button type="button" id="exportPng"><strong>16:9 PNG</strong><small>High-resolution slide image</small></button><button type="button" id="exportPdf"><strong>16:9 PDF</strong><small>Presentation-ready page</small></button><button type="button" id="exportSvg"><strong>16:9 SVG</strong><small>Sharp, editable slide graphic</small></button><button type="button" id="exportDetailedSvg"><strong>Detailed SVG</strong><small>Full working-chart dimensions</small></button><button type="button" id="exportJson"><strong>Project file</strong><small>Backup all editable data</small></button><button type="button" id="importJson"><strong>Open project</strong><small>Restore a saved project file</small></button></div></form>
   </dialog>
+
+  <dialog id="presentationPreviewDialog" class="presentation-preview-dialog"><div class="preview-head"><div><p class="eyebrow">16:9 PREVIEW</p><strong>Presentation layout</strong></div><button type="button" class="close-btn preview-close">×</button></div><div id="presentationPreview"></div><div class="preview-actions"><button type="button" class="ghost-btn preview-close">Close</button><button type="button" class="primary-btn" id="previewExportPng">Export PNG</button></div></dialog>
 
   <dialog id="newProjectDialog">
     <form method="dialog"><div class="dialog-head"><div><p class="eyebrow">NEW PROJECT</p><h2>Start from scratch?</h2></div><button type="button" class="close-btn new-project-close">×</button></div><p class="new-project-copy">Download the current project file first if you want to open it again later.</p><div class="new-project-actions"><button type="button" class="ghost-btn new-project-close">Cancel</button><button type="button" class="danger-link" id="newWithoutSave">Start without saving</button><button type="button" class="primary-btn" id="newSave">Save &amp; start new</button></div></form>
   </dialog>
 
   <div class="toast" id="toast"></div>
-  <script src="app.js?v=20260715-21"></script>
+  <script src="app.js?v=20260715-22"></script>
 </body>
 </html>
